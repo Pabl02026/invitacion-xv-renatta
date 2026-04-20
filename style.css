@@ -1,19 +1,45 @@
-/* ===== RESET PRO ===== */
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  min-height: 100dvh; /* clave para iPhone */
+  min-height: 100dvh;
   font-family: Arial, sans-serif;
   background: url('fondo.png') no-repeat center center/cover;
-  background-color: #0a0a0a; /* fallback elegante */
 }
 
-/* ===== OVERLAY FULL ===== */
+/* 💌 pantalla inicio */
+#pantallaInicio {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('fondo.png') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.inicio-card {
+  background: rgba(255,255,255,0.9);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#abrirInvitacion {
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(45deg, #ff2d75, #ff7a00);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* overlay */
 .overlay {
   min-height: 100dvh;
-  width: 100%;
-
   background: rgba(0,0,0,0.45);
 
   display: flex;
@@ -21,10 +47,9 @@ html, body {
   align-items: center;
 
   padding: 20px 10px;
-  box-sizing: border-box;
 }
 
-/* ===== TARJETA ===== */
+/* tarjeta */
 .card {
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(10px);
@@ -36,18 +61,14 @@ html, body {
   max-width: 420px;
 
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  animation: entrada 1.2s ease;
 }
 
-/* ===== TEXTOS ===== */
 .titulo {
   font-size: 2.6em;
   color: #ff2d75;
 }
 
-.sub {
-  color: #555;
-}
+.sub { color: #555; }
 
 h2 {
   color: #ff2d75;
@@ -60,13 +81,9 @@ h2 {
   margin: 15px 0;
 }
 
-.dress {
-  font-weight: bold;
-}
+.dress { font-weight: bold; }
 
-/* ===== BOTONES ===== */
-.botones a,
-.botones button {
+.botones a, .botones button {
   display: block;
   margin: 10px auto;
   padding: 12px;
@@ -77,15 +94,9 @@ h2 {
   cursor: pointer;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.3s;
 }
 
-.botones a:hover,
-.botones button:hover {
-  transform: scale(1.05);
-}
-
-/* ===== FLORES ===== */
+/* flores */
 .flores span {
   position: absolute;
   font-size: 24px;
@@ -93,21 +104,19 @@ h2 {
 }
 
 @keyframes flotar {
-  0% { transform: translateY(100vh); opacity: 1; }
-  100% { transform: translateY(-10vh); opacity: 0; }
+  0% { transform: translateY(100vh); }
+  100% { transform: translateY(-10vh); }
 }
 
-/* ===== OLAS ===== */
+/* olas */
 .olas {
   position: fixed;
   bottom: 0;
   width: 100%;
   height: 80px;
-  background: url('FONDO1.png');
+  background: url('https://i.imgur.com/ZAts69L.png');
   background-size: cover;
   animation: moverOlas 6s linear infinite;
-  pointer-events: none;
-  z-index: 1;
 }
 
 @keyframes moverOlas {
@@ -115,53 +124,18 @@ h2 {
   100% { background-position-x: 1000px; }
 }
 
-/* ===== ANIMACIÓN ===== */
-@keyframes entrada {
-  0% { opacity: 0; transform: scale(0.8) translateY(50px); }
-  100% { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-/* ===== RESPONSIVE PRO ===== */
+/* responsive */
 @media (max-width: 600px) {
-
-  body {
-    min-height: 100dvh;
-  }
-
   .overlay {
     align-items: flex-start;
     padding-top: 40px;
   }
 
   .card {
-    width: 95%;
-    max-width: none;
-    padding: 40px 25px;
-    margin-bottom: 60px; /* evita que choque con olas */
-  }
-
-  .titulo {
-    font-size: 2.3em;
-  }
-
-  h2 {
-    font-size: 1.7em;
+    margin-bottom: 60px;
   }
 
   .info {
     flex-direction: column;
-    gap: 5px;
-  }
-
-  .botones a,
-  .botones button {
-    width: 100%;
-  }
-}
-
-/* ===== FIX EXTRA iPHONE ===== */
-@supports (-webkit-touch-callout: none) {
-  body {
-    min-height: -webkit-fill-available;
   }
 }
