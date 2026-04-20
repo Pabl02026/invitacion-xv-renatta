@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const params = new URLSearchParams(window.location.search);
-  const nombre = params.get("nombre") || "Renatta";
+  const nombre = params.get("nombre") || "Invitado";
   const pases = params.get("pases") || "1";
 
   document.getElementById("nombre").textContent = nombre;
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ubicación
   document.getElementById("ubicacion").href =
-  "https://www.google.com/maps/place/Palapa+El+Fresno";
+  "https://maps.app.goo.gl/o7g5fjQbHxmXxnxK7";
 
   // whatsapp
   document.getElementById("whatsapp").href =
