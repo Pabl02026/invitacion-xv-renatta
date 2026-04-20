@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 const params = new URLSearchParams(window.location.search);
-const nombre = params.get("nombre") || "Invitado";
+const nombre = "Renatta";
 const pases = params.get("pases") || "1";
 
 document.getElementById("nombre").textContent = nombre;
@@ -13,7 +13,10 @@ document.getElementById("ubicacion").href =
 
 document.getElementById("whatsapp").href =
 "https://wa.me/528443884334?text=" +
-encodeURIComponent("Confirmo asistencia. Somos " + pases + " personas.");
+encodeURIComponent(
+  "Hola 😊 confirmo asistencia a los XV’s de Renatta.\n" +
+  "Asistiremos " + pases + " persona(s)."
+);
 
 const pantalla = document.getElementById("pantallaInicio");
 const boton = document.getElementById("abrirInvitacion");
