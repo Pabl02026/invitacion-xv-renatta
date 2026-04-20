@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
-// abrir invitación
 const inicio=document.getElementById("inicio");
 const btn=document.getElementById("btnAbrir");
 const audio=document.getElementById("musica");
 
 btn.onclick=()=>{
-inicio.style.display="none";
+inicio.style.opacity="0";
+setTimeout(()=>{inicio.style.display="none";},800);
 audio.play().catch(()=>{});
 };
 
-// música toggle
+// musica
 const toggle=document.getElementById("toggleMusica");
 let play=true;
 toggle.onclick=()=>{
@@ -38,7 +38,7 @@ document.getElementById("contador").innerHTML=
 "⏳ "+d+" días • "+h+" hrs • "+m+" min";
 },1000);
 
-// pases por URL
+// pases
 const params=new URLSearchParams(window.location.search);
 const pases=params.get("pases")||"1";
 document.getElementById("pases").textContent="🎟️ Acceso para "+pases+" persona(s)";
