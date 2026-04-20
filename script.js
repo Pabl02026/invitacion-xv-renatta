@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   boton.addEventListener("click", () => {
     pantalla.style.display = "none";
+    document.querySelector(".overlay").style.display = "flex"; // 🔥 muestra invitación
     audio.play().catch(() => {});
   });
 
