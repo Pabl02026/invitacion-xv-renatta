@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const params = new URLSearchParams(window.location.search);
-  const nombre = params.get("nombre") || "Invitado";
+  const nombre = params.get("nombre") || "Renatta";
   const pases = params.get("pases") || "1";
 
   document.getElementById("nombre").textContent = nombre;
@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   "https://wa.me/528443884334?text=" +
   encodeURIComponent(
     "Hola 😊 confirmo asistencia a los XV de Renatta.\n" +
-    "Nombre: " + nombre + "\n" +
-    "Asistiremos " + pases + " persona(s)."
+    "Nombre: " + nombre + "\n"
   );
 
   // 💌 pantalla inicio + música
