@@ -15,26 +15,27 @@ body {
 }
 
 .card {
-  background: rgba(255,255,255,0.9);
-  padding: 25px;
-  border-radius: 20px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 25px;
   text-align: center;
   width: 90%;
   max-width: 400px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
   animation: entrada 1.2s ease;
 }
 
 .titulo {
-  color: #ff4081;
-  font-size: 2.5em;
+  font-size: 2.8em;
+  color: #ff2d75;
+  text-shadow: 0 0 10px rgba(255,45,117,0.4);
 }
 
-.sub {
-  color: #555;
-}
+.sub { color: #555; }
 
 h2 {
-  color: #ff4081;
+  color: #ff2d75;
   font-size: 2em;
 }
 
@@ -44,28 +45,27 @@ h2 {
   margin: 15px 0;
 }
 
-.dress {
-  font-weight: bold;
-}
+.dress { font-weight: bold; }
 
 .botones a, .botones button {
   display: block;
   margin: 10px auto;
   padding: 10px;
-  border-radius: 10px;
-  text-decoration: none;
+  border-radius: 50px;
   background: linear-gradient(45deg, #00c6ff, #0072ff);
   color: white;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .botones a:hover, .botones button:hover {
   transform: scale(1.05);
 }
 
-/* 🌸 FLORES */
+/* 🌸 flores */
 .flores span {
   position: absolute;
   font-size: 24px;
@@ -73,11 +73,11 @@ h2 {
 }
 
 @keyframes flotar {
-  0% { transform: translateY(100vh) rotate(0); opacity: 1; }
-  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
 }
 
-/* 🌊 OLAS */
+/* 🌊 olas */
 .olas {
   position: absolute;
   bottom: 0;
@@ -93,14 +93,8 @@ h2 {
   100% { background-position-x: 1000px; }
 }
 
-/* ✨ ENTRADA */
+/* animación entrada */
 @keyframes entrada {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  0% { opacity: 0; transform: scale(0.8) translateY(50px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
 }
