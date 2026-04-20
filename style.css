@@ -25,6 +25,13 @@ html, body {
   text-align: center;
 }
 
+.inicio-card h1{
+  font-family: 'Pacifico', cursive;
+  font-size: 2.4em;
+  color: #ff2d75;
+  text-shadow: 0 4px 12px rgba(255, 45, 117, 0.3);
+}
+
 #abrirInvitacion {
   padding: 12px 20px;
   border-radius: 30px;
@@ -44,9 +51,9 @@ html, body {
   background: transparent;
 }
 
-/* tarjetas */
 .card {
-  background: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
   border-radius: 25px;
   padding: 25px 20px;
   margin: 15px 0;
@@ -56,6 +63,12 @@ html, body {
 
   text-align: center;
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+
+  transition: transform 0.3s ease; /* 🔥 aquí mismo */
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .titulo {
@@ -79,6 +92,12 @@ html, body {
   color: white;
   text-decoration: none;
   border: none;
+
+  transition: all 0.3s ease; /* 🔥 importante */
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 /* imágenes */
@@ -104,11 +123,17 @@ html, body {
 
 #nombre{
   font-family: 'Pacifico', cursive;
-  font-size: 2.6em;
+  font-size: 2.8em;
   color: #ff2d75;
   letter-spacing: 2px;
+  text-shadow: 0 4px 12px rgba(255, 45, 117, 0.3);
+
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 p, span, h3 {
   font-family: 'Poppins', sans-serif;
 }
+
+
