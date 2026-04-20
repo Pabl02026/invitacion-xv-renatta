@@ -1,48 +1,65 @@
-document.addEventListener("DOMContentLoaded",()=>{
+// esperar a que cargue TODO
+document.addEventListener("DOMContentLoaded", () => {
 
-const inicio=document.getElementById("inicio");
-const btn=document.getElementById("btnAbrir");
-const overlay=document.querySelector(".overlay");
-const audio=document.getElementById("musica");
+  const params = new URLSearchParams(window.location.search);
+  const nombre = params.get("nombre") || "Invitado";
+  const pases = params.get("pases") || "1";
 
-btn.onclick=()=>{
-inicio.style.display="none";
-overlay.style.display="flex";
-audio.play().catch(()=>{});
-};
+  document.getElementById("nombre").textContent = nombre;
+  document.getElementById("pases").textContent =
+  "🎟️ Acceso para " + pases + " persona(s)";
 
-const toggle=document.getElementById("toggleMusica");
-let play=true;
+  // ubicación
+  document.getElementById("ubicacion").href =
+  "https://www.google.com/maps/place/Palapa+El+Fresno";
 
-toggle.onclick=()=>{
-if(play){
-audio.pause();
-toggle.textContent="🔇 Activar música";
-}else{
-audio.play();
-toggle.textContent="🎵 Pausar música";
-}
-play=!play;
-};
+  // whatsapp
+  document.getElementById("whatsapp").href =
+  "https://wa.me/528443884334?text=" +
+  encodeURIComponent(
+    "Hola 😊 confirmo asistencia a los XV de Renatta.\n" +
+    "Nombre: " + nombre + "\n" +
+    "Asistiremos " + pases + " persona(s)."
+  );
 
-const fechaEvento=new Date("June 20, 2026 17:00:00").getTime();
+  // 💌 pantalla inicio + música
+  const pantalla = document.getElementById("pantallaInicio");
+  const boton = document.getElementById("abrirInvitacion");
+  const audio = document.getElementById("musica");
 
-setInterval(()=>{
-const ahora=new Date().getTime();
-const diff=fechaEvento-ahora;
+  boton.addEventListener("click", () => {
+    pantalla.style.display = "none";
+    audio.play().catch(() => {});
+  });
 
-const d=Math.floor(diff/(1000*60*60*24));
-const h=Math.floor((diff/(1000*60*60))%24);
-const m=Math.floor((diff/(1000*60))%60);
+  // 🎶 control música
+  const toggleBtn = document.getElementById("toggleMusica");
+  let reproduciendo = true;
 
-document.getElementById("contador").innerHTML =
-"⏳ " + d + " días • " + h + " hrs • " + m + " min";
-},1000);
+  toggleBtn.addEventListener("click", () => {
+    if (reproduciendo) {
+      audio.pause();
+      toggleBtn.textContent = "🔇 Activar música";
+    } else {
+      audio.play();
+      toggleBtn.textContent = "🎵 Pausar música";
+    }
+    reproduciendo = !reproduciendo;
+  });
 
-const params=new URLSearchParams(window.location.search);
-const pases=params.get("pases") || "1";
+  // ⏳ contador
+  const fechaEvento = new Date("June 20, 2026 17:00:00").getTime();
 
-document.getElementById("pases").textContent =
-"🎟️ Acceso para " + pases + " persona(s)";
+  setInterval(() => {
+    const ahora = new Date().getTime();
+    const diff = fechaEvento - ahora;
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+
+    document.getElementById("contador").innerHTML =
+      `⏳ <b>${d}</b> días • <b>${h}</b> hrs • <b>${m}</b> min`;
+  }, 1000);
 
 });
