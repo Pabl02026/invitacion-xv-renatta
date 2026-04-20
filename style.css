@@ -39,6 +39,12 @@ html, body {
   background: linear-gradient(45deg, #ff2d75, #ff7a00);
   color: white;
   cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+#abrirInvitacion:hover {
+  transform: scale(1.05);
 }
 
 /* overlay */
@@ -47,8 +53,10 @@ html, body {
   display: none; /* 🔥 AQUÍ */
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start; /* 🔥 mejor control */
   padding: 20px 10px;
   background: transparent;
+  gap: 10px;
 }
 
 .card {
@@ -56,15 +64,15 @@ html, body {
   backdrop-filter: blur(10px);
   border-radius: 25px;
   padding: 25px 20px;
-  margin: 15px 0;
+  margin: 0;
 
   width: 90%;
   max-width: 380px;
 
   text-align: center;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
   transition: transform 0.3s ease; /* 🔥 aquí mismo */
+  border: 1px solid rgba(255,255,255,0.4);
 }
 
 .card:hover {
@@ -74,7 +82,8 @@ html, body {
 .titulo {
   font-family: 'Pacifico', cursive;
   font-size: 2.4em;
-  color: #ff2d75;
+  color: #ff2d75;    
+  letter-spacing: 1px;
 }
 
 .info {
@@ -136,4 +145,16 @@ p, span, h3 {
   font-family: 'Poppins', sans-serif;
 }
 
+p {
+  color: #444;
+}
 
+h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn:active,
+#abrirInvitacion:active {
+  transform: scale(0.95);
+}
