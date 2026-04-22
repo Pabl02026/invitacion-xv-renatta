@@ -25,6 +25,11 @@ html, body {
   text-align: center;
 }
 
+.inicio-card {
+  position: relative;
+  z-index: 10; /* 🔥 queda encima de los split */
+}
+
 .inicio-card h1{
   font-family: 'Pacifico', cursive;
   font-size: 2.4em;
@@ -116,15 +121,6 @@ html, body {
   margin-top: 10px;
 }
 
-/* flores */
-.flores span {
-  position: fixed;
-  top: 0;
-  font-size: 22px;
-  animation: flotar linear infinite;
-  pointer-events: none;
-}
-
 @keyframes flotar {
   0% { transform: translateY(100vh);}
   100% { transform: translateY(-10vh);}
@@ -180,7 +176,7 @@ h2 {
   width: 50%;
   height: 100%;
   background: url('fondo.png') center/cover no-repeat;
-  z-index: 10000;
+  z-index: 5; /* 🔥 ya no tapa todo */
   transition: transform 1s ease;
 }
 
