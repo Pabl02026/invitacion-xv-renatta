@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("whatsapp").href =
   "https://wa.me/528443884334?text=" +
   encodeURIComponent(
-    "Hola 😊 confirmo asistencia a los XV de Renatta.\n" +
+    "Hola 😊\n" +
+    "Hemos reservado " + pases + " lugares para ti en los XV de Renatta 🌺\n" +
+    "Confírmanos cuántos nos acompañarán:\n" +
     "Nombre: "
   );
 
