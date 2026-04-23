@@ -59,23 +59,18 @@ boton.addEventListener("click", () => {
   card.style.transform = "scale(0.9)";
   card.style.transition = "0.3s ease";
 
-  // 👇 mostrar overlay desde el inicio (invisible)
+  // 👇 mostrar overlay INMEDIATAMENTE (ya visible)
   overlay.style.display = "flex";
-  overlay.style.opacity = "0";
+  overlay.style.opacity = "1";
 
-  setTimeout(() => {
+  // 🌺 partículas
+  lanzarFlores();
 
-    lanzarFlores(); // 🌺 partículas
+  // 💥 romper pantalla INMEDIATO
+  pantalla.classList.add("abrir");
 
-    pantalla.classList.add("abrir"); // 💥 animación
-
-    // ✨ fade de los recuadros mientras se abre
-    overlay.style.transition = "opacity 0.8s ease";
-    overlay.style.opacity = "1";
-
-    audio.play().catch(() => {});
-
-  }, 300);
+  // 🎶 música
+  audio.play().catch(() => {});
 
   // 🔚 ocultar pantalla al final
   setTimeout(() => {
