@@ -52,28 +52,38 @@ document.addEventListener("DOMContentLoaded", () => {
 boton.addEventListener("click", () => {
 
   const card = document.querySelector(".inicio-card");
+  const overlay = document.querySelector(".overlay");
 
-  // 🔥 1. desaparece el cuadro
+  // 💨 desaparecer cuadro
   card.style.opacity = "0";
   card.style.transform = "scale(0.9)";
   card.style.transition = "0.3s ease";
+
+  // 👇 mostrar overlay desde el inicio (invisible)
+  overlay.style.display = "flex";
+  overlay.style.opacity = "0";
 
   setTimeout(() => {
 
     lanzarFlores(); // 🌺 partículas
 
-    pantalla.classList.add("abrir"); // 💥 rompe
+    pantalla.classList.add("abrir"); // 💥 animación
+
+    // ✨ fade de los recuadros mientras se abre
+    overlay.style.transition = "opacity 0.8s ease";
+    overlay.style.opacity = "1";
 
     audio.play().catch(() => {});
 
-    setTimeout(() => {
-      pantalla.style.display = "none";
-      document.querySelector(".overlay").style.display = "flex";
-    }, 1000);
+  }, 300);
 
-  }, 300); // ⏱️ espera a que desaparezca el cuadro
+  // 🔚 ocultar pantalla al final
+  setTimeout(() => {
+    pantalla.style.display = "none";
+  }, 1000);
 
 });
+
   // 🎶 control música
   const toggleBtn = document.getElementById("toggleMusica");
   let reproduciendo = true;
