@@ -1,31 +1,40 @@
 // esperar a que cargue TODO
 document.addEventListener("DOMContentLoaded", () => {
 
+  // 🔗 parámetros del link
   const params = new URLSearchParams(window.location.search);
-  const nombre = params.get("nombre") || "RENATTA";
+  const nombreInvitado = params.get("nombre") || "INVITADO";
   const pases = params.get("pases") || "1";
 
+  // 🌺 nombre de la quinceañera (fijo elegante)
+  const nombreQuince = "RENATTA";
+
+  // ✨ mostrar nombre del invitado
+  document.getElementById("nombre").textContent =
+    nombreInvitado.toUpperCase();
+
+  // 🎟️ pases
   document.getElementById("pases").textContent =
-    "🎟️ Acceso para " + pases + " persona(s)";
+    "🎟️ Acceso reservado para " + pases + " persona(s)";
 
   // 📍 ubicación
   document.getElementById("ubicacion").href =
     "https://maps.app.goo.gl/o7g5fjQbHxmXxnxK7";
 
-  // 📲 whatsapp
+  // 📲 whatsapp (mensaje elegante)
   document.getElementById("whatsapp").href =
     "https://wa.me/528443884334?text=" +
     encodeURIComponent(
       "Hola 😊\n" +
-      "Hemos reservado " + pases + " lugares para ti en los XV de Renatta 🌺\n" +
-      "Confírmanos cuántos nos acompañarán:\n" +
+      "Con gusto confirmo asistencia a los XV de " + nombreQuince + " 🌺\n\n" +
+      "Se han reservado " + pases + " lugares a mi nombre.\n" +
+      "Confirmamos asistencia de:\n" +
       "Nombre: "
     );
 
   // 🌺 PARTÍCULAS DE FLORES
   function lanzarFlores() {
     const contenedor = document.querySelector(".flores");
-
     const emojis = ["🌺","🌸","🌼"];
 
     for (let i = 0; i < 25; i++) {
@@ -49,35 +58,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const boton = document.getElementById("abrirInvitacion");
   const audio = document.getElementById("musica");
 
-boton.addEventListener("click", () => {
+  boton.addEventListener("click", () => {
 
-  const card = document.querySelector(".inicio-card");
-  const overlay = document.querySelector(".overlay");
+    const card = document.querySelector(".inicio-card");
+    const overlay = document.querySelector(".overlay");
 
-  // 💨 desaparecer cuadro
-  card.style.opacity = "0";
-  card.style.transform = "scale(0.9)";
-  card.style.transition = "0.3s ease";
+    // 💨 desaparecer cuadro
+    card.style.opacity = "0";
+    card.style.transform = "scale(0.9)";
+    card.style.transition = "0.3s ease";
 
-  // 👇 mostrar overlay INMEDIATAMENTE (ya visible)
-  overlay.style.display = "flex";
-  overlay.style.opacity = "1";
+    // ✨ mostrar invitación inmediatamente
+    overlay.style.display = "flex";
+    overlay.style.opacity = "1";
 
-  // 🌺 partículas
-  lanzarFlores();
+    // 🌺 partículas
+    lanzarFlores();
 
-  // 💥 romper pantalla INMEDIATO
-  pantalla.classList.add("abrir");
+    // 💥 animación apertura
+    pantalla.classList.add("abrir");
 
-  // 🎶 música
-  audio.play().catch(() => {});
+    // 🎶 música
+    audio.play().catch(() => {});
 
-  // 🔚 ocultar pantalla al final
-  setTimeout(() => {
-    pantalla.style.display = "none";
-  }, 1000);
-
-});
+    // 🔚 ocultar pantalla
+    setTimeout(() => {
+      pantalla.style.display = "none";
+    }, 1000);
+  });
 
   // 🎶 control música
   const toggleBtn = document.getElementById("toggleMusica");
