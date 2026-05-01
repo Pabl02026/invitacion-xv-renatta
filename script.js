@@ -1,17 +1,16 @@
-// esperar a que cargue TODO
 document.addEventListener("DOMContentLoaded", () => {
 
-  // 🔗 parámetros del link
   const params = new URLSearchParams(window.location.search);
-  const nombreInvitado = params.get("nombre") || "INVITADO";
+  const nombreInvitado = params.get("nombre") || "";
   const pases = params.get("pases") || "1";
 
-  // 🌺 nombre de la quinceañera (fijo elegante)
   const nombreQuince = "RENATTA";
 
-  // ✨ mostrar nombre del invitado
-  document.getElementById("nombre").textContent =
-    nombreInvitado.toUpperCase();
+  // 👋 saludo
+  if (nombreInvitado) {
+    document.getElementById("saludo").textContent =
+      "Hola " + nombreInvitado;
+  }
 
   // 🎟️ pases
   document.getElementById("pases").textContent =
@@ -21,100 +20,82 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("ubicacion").href =
     "https://maps.app.goo.gl/o7g5fjQbHxmXxnxK7";
 
-  // 📲 whatsapp (mensaje elegante)
+  // 📲 whatsapp
   document.getElementById("whatsapp").href =
     "https://wa.me/528443884334?text=" +
     encodeURIComponent(
-      "Hola 😊\n" +
-      "Con gusto confirmo asistencia a los XV de " + nombreQuince + " 🌺\n\n" +
-      "Se han reservado " + pases + " lugares a mi nombre.\n" +
-      "Confirmamos asistencia de:\n" +
-      "Nombre: "
+      "Hola 😊\nConfirmo asistencia a los XV de " + nombreQuince +
+      "\nNombre: "
     );
 
-  // 🌺 PARTÍCULAS DE FLORES
+  // 🌺 flores
   function lanzarFlores() {
     const contenedor = document.querySelector(".flores");
     const emojis = ["🌺","🌸","🌼"];
 
     for (let i = 0; i < 25; i++) {
       const flor = document.createElement("span");
-
-      flor.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      flor.style.left = Math.random() * 100 + "vw";
-      flor.style.fontSize = (Math.random() * 15 + 15) + "px";
-      flor.style.animationDuration = (Math.random() * 2 + 2) + "s";
+      flor.textContent = emojis[Math.floor(Math.random()*3)];
+      flor.style.left = Math.random()*100+"vw";
+      flor.style.fontSize = (Math.random()*15+15)+"px";
+      flor.style.animationDuration = (Math.random()*2+2)+"s";
 
       contenedor.appendChild(flor);
 
-      setTimeout(() => {
-        flor.remove();
-      }, 3000);
+      setTimeout(() => flor.remove(), 3000);
     }
   }
 
-  // 💌 pantalla inicio + música
+  // 💌 animación apertura
   const pantalla = document.getElementById("pantallaInicio");
   const boton = document.getElementById("abrirInvitacion");
   const audio = document.getElementById("musica");
 
   boton.addEventListener("click", () => {
 
-    const card = document.querySelector(".inicio-card");
-    const overlay = document.querySelector(".overlay");
+    document.querySelector(".inicio-card").style.opacity = "0";
 
-    // 💨 desaparecer cuadro
-    card.style.opacity = "0";
-    card.style.transform = "scale(0.9)";
-    card.style.transition = "0.3s ease";
+    document.querySelector(".overlay").style.display = "flex";
 
-    // ✨ mostrar invitación inmediatamente
-    overlay.style.display = "flex";
-    overlay.style.opacity = "1";
-
-    // 🌺 partículas
     lanzarFlores();
 
-    // 💥 animación apertura
     pantalla.classList.add("abrir");
 
-    // 🎶 música
-    audio.play().catch(() => {});
+    audio.play().catch(()=>{});
 
-    // 🔚 ocultar pantalla
-    setTimeout(() => {
-      pantalla.style.display = "none";
-    }, 1000);
+    setTimeout(()=>{
+      pantalla.style.display="none";
+    },1000);
   });
 
-  // 🎶 control música
-  const toggleBtn = document.getElementById("toggleMusica");
-  let reproduciendo = true;
+  // 🎶 música
+  const toggle = document.getElementById("toggleMusica");
+  let play = true;
 
-  toggleBtn.addEventListener("click", () => {
-    if (reproduciendo) {
+  toggle.addEventListener("click", ()=>{
+    if(play){
       audio.pause();
-      toggleBtn.textContent = "🔇 Activar música";
+      toggle.textContent="🔇 Activar música";
     } else {
       audio.play();
-      toggleBtn.textContent = "🎵 Pausar música";
+      toggle.textContent="🎵 Pausar música";
     }
-    reproduciendo = !reproduciendo;
+    play=!play;
   });
 
   // ⏳ contador
-  const fechaEvento = new Date("June 20, 2026 17:00:00").getTime();
+  const fecha = new Date("June 20, 2026 17:00:00").getTime();
 
-  setInterval(() => {
-    const ahora = new Date().getTime();
-    const diff = fechaEvento - ahora;
+  setInterval(()=>{
+    const now = new Date().getTime();
+    const diff = fecha - now;
 
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const d = Math.floor(diff/(1000*60*60*24));
+    const h = Math.floor((diff/(1000*60*60))%24);
+    const m = Math.floor((diff/(1000*60))%60);
 
     document.getElementById("contador").innerHTML =
       `⏳ <b>${d}</b> días • <b>${h}</b> hrs • <b>${m}</b> min`;
-  }, 1000);
+  },1000);
 
 });

@@ -1,7 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif; /* 🔥 base bonita */
+  font-family: 'Poppins', sans-serif;
   background: url('fondo.png') no-repeat center center/cover;
   min-height: 100dvh;
 }
@@ -11,212 +11,116 @@ html, body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url('fondo.png') no-repeat center center/cover;
+  background: url('fondo.png') center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-}
-
-.inicio-card {
-  background: rgba(255,255,255,0.9);
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
+  overflow: hidden;
 }
 
 .inicio-card {
   position: relative;
-  z-index: 10; /* 🔥 queda encima de los split */
-}
-
-.inicio-card {
-  transition: all 0.3s ease;
-}
-
-.inicio-card h1{
-  font-family: 'Pacifico', cursive;
-  font-size: 2.4em;
-  color: #ff2d75;
-  text-shadow: 0 4px 12px rgba(255, 45, 117, 0.3);
-}
-
-#abrirInvitacion {
-  padding: 12px 20px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(45deg, #ff2d75, #ff7a00);
-  color: white;
-  cursor: pointer;
-
-  transition: all 0.3s ease;
-}
-
-#abrirInvitacion:hover {
-  transform: scale(1.05);
-}
-
-/* overlay */
-.overlay {
-  min-height: 100dvh;
-  display: none; /* 🔥 AQUÍ */
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* 🔥 mejor control */
-  padding: 20px 10px;
-  background: transparent;
-  gap: 20px;
-}
-
-.card {
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 25px;
-  padding: 25px 20px;
-  margin: 0;
-
-  width: 90%;
-  max-width: 380px;
-
+  z-index: 10;
+  background: rgba(255,255,255,0.9);
+  padding: 30px;
+  border-radius: 20px;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
-  transition: transform 0.3s ease; /* 🔥 aquí mismo */
-  border: 1px solid rgba(255,255,255,0.4);
+  transition: all 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.titulo {
+.inicio-card h1 {
   font-family: 'Pacifico', cursive;
-  font-size: 2.4em;
-  color: #ff2d75;    
-  letter-spacing: 1px;
-}
-
-.info {
-  display: flex;
-  justify-content: space-around;
-  margin: 10px 0;
-}
-
-.btn {
-  display: block;
-  margin: 10px auto;
-  padding: 12px;
-  border-radius: 30px;
-  background: linear-gradient(45deg, #00c6ff, #0072ff);
-  color: white;
-  text-decoration: none;
-  border: none;
-
-  transition: all 0.3s ease; /* 🔥 importante */
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
-/* imágenes */
-.imagen {
-  width: 100%;
-  border-radius: 15px;
-  margin-top: 10px;
-}
-
-@keyframes flotar {
-  0% { transform: translateY(100vh);}
-  100% { transform: translateY(-10vh);}
-}
-
-#nombre{
-  font-family: 'Pacifico', cursive;
-  font-size: 2.8em;
   color: #ff2d75;
-  letter-spacing: 2px;
-  text-shadow: 0 4px 12px rgba(255, 45, 117, 0.3);
-
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
-p, span, h3 {
-  font-family: 'Poppins', sans-serif;
-}
-
-p {
-  color: #444;
-}
-
-h2 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.btn,
-#abrirInvitacion {
-  transition: all 0.25s ease;
-}
-
-.btn:active,
-#abrirInvitacion:active {
-  transform: scale(0.93);
-  opacity: 0.85;
-}
-
-.card h2,
-.card p,
-.card img,
-.card .info,
-.card h3 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
+/* 💥 splits */
 .split {
   position: absolute;
   top: 0;
   width: 50%;
   height: 100%;
   background: url('fondo.png') center/cover no-repeat;
-  z-index: 5; /* 🔥 ya no tapa todo */
+  z-index: 5;
   transition: transform 1s ease;
 }
 
-.split.left {
-  left: 0;
-}
+.left { left: 0; }
+.right { right: 0; }
 
-.split.right {
-  right: 0;
-}
-
-/* 🔥 animación */
-.abrir .left {
+#pantallaInicio.abrir .left {
   transform: translateX(-100%);
 }
 
-.abrir .right {
+#pantallaInicio.abrir .right {
   transform: translateX(100%);
 }
 
+/* overlay */
+.overlay {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  gap: 20px;
+}
+
+/* cards */
+.card {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 25px;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+}
+
+/* texto */
+.titulo {
+  font-family: 'Pacifico', cursive;
+  color: #ff2d75;
+}
+
+#nombre {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.6em;
+  color: #ff2d75;
+}
+
+#saludo {
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* botones */
+.btn {
+  padding: 12px;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover { transform: scale(1.05); }
+.btn:active { transform: scale(0.95); }
+
+/* imagen */
+.imagen {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* flores */
 .flores span {
   position: fixed;
-  top: -20px;
-  font-size: 20px;
-  animation: caer 3s linear forwards;
-  pointer-events: none;
-  z-index: 9999;
+  top: 0;
+  animation: caer linear infinite;
 }
 
 @keyframes caer {
-  0% {
-    transform: translateY(-20px) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
+  from { transform: translateY(-10vh); }
+  to { transform: translateY(100vh); }
 }
