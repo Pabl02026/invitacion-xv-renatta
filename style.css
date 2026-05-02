@@ -124,3 +124,7 @@ html, body {
   from { transform: translateY(-10vh); }
   to { transform: translateY(100vh); }
 }
+
+.card h2 {
+  font-weight: 700;
+}

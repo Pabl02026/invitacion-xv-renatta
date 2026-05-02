@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "https://wa.me/528443884334?text=" +
     encodeURIComponent(
       "Hola 😊 confirmo asistencia a los XV de Renatta.\n" +
-      "Te hemos reservado " + pases + " lugar(es) para ti.\n" +
-      "Confirmamos cuántos irán: "
+      "Reservamos " + pases + " lugar(es) para ti.\n" +
+      "Confrima número de asistentes: "
     );
 
   // 🌺 flores
