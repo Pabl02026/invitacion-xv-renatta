@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     encodeURIComponent(
       "Hola 😊 confirmo asistencia a los XV de Renatta.\n" +
       "Reservamos " + pases + " lugar(es) para ti.\n" +
-      "Confrima número de asistentes: "
+      "Confirma número de asistentes: "
     );
 
   // 🌺 flores
