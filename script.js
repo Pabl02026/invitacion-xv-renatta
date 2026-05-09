@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const nombreQuince = "RENATTA";
 
   // 👋 saludo
-  if (nombreInvitado) {
+  if (nombre) {
     document.getElementById("saludo").textContent =
-      "Hola " + nombreInvitado;
+      "Hola " + nombre;
   }
 
   // 🎟️ pases
