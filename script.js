@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const params = new URLSearchParams(window.location.search);
-  const nombre = params.get("nombre") || "Invitado";
+
+  const nombre = decodeURIComponent(
+    params.get("nombre") || "Invitado"
+  );
+
   const pases = params.get("pases") || "1";
 
   const nombreQuince = "RENATTA";
